@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from './auth/auth.service';
 import {HttpModule} from "@angular/http";
+import {HomeService} from "./home/home.service";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {HttpModule} from "@angular/http";
     AppRoutingModule,
     HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

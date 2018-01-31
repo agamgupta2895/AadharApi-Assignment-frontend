@@ -1,3 +1,50 @@
-<p>
-  home works!
-</p>
+<div>
+  <form class="ui form segment"
+        style="margin: 20px 20% 0 20%;"
+        (ngSubmit)="onUpdate(form)"
+        #form="ngForm"
+        *ngIf="!otpField">
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text"
+             id="email"
+             name="email"
+             [value]="user.email"
+             disabled
+             placeholder="your email">
+    </div>
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text"
+             id="name"
+             name="name"
+             [value] = "user.name ? user.name: ''"
+             ngModel
+             [disabled]= "!enableEditing"
+             required
+             placeholder="Enter your name">
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="text"
+             id="phone"
+             name="phone"
+             [value] = "user.phone ? user.phone: ''"
+             [disabled]= "!enableEditing"
+             ngModel
+             required
+             placeholder="Enter Your number">
+    </div>
+
+    <button class="ui button" type="submit" [disabled]="!enableEditing" style="cursor: pointer">Update</button>
+  </form>
+
+</div>
+
+
+<button class="ui button" (click)="enableEditingForm()" ><i class="edit icon"></i>
+  Add or Update
+</button>
+
+
+

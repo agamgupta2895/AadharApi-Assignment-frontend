@@ -25,11 +25,10 @@ export class AuthService {
   }
 
   onLogout() {
-    localStorage.setItem('wowsome_token', null);
-    localStorage.setItem('user_id', null);
+    localStorage.setItem('adhaar_token', null);
   }
 
   getToken() {
-    return localStorage.getItem('wowsome_token');
+    return localStorage.getItem('adhaar_token');
   }
 }
