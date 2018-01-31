@@ -1,0 +1,45 @@
+<form class="ui form segment"
+      style="margin: 20px 20% 0 20%;"
+      (ngSubmit)="onAuth(form)"
+      #form="ngForm"
+      *ngIf= "!otpField">
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="text"
+           id="email"
+           name="email"
+           ngModel
+           required
+           placeholder="Enter your email"
+           pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+  </div>
+
+  <button class="ui button" type="submit" [disabled]="!form.valid" style="cursor: pointer">Go</button>
+</form>
+<div class="ui dimmer" [ngClass]="showLoading ? 'active' : 'disabled'">
+  <div class="ui text loader">Sending OTP</div>
+</div>
+<div *ngIf="otpField">
+  <form class="ui form segment"
+        style="margin: 20px 20% 0 20%;"
+        (ngSubmit)="onOTPVerify(formOTP)"
+        #formOTP="ngForm"
+        >
+    <div class="field">
+      <label for="otp">OTP</label>
+      <input type="text"
+             id="otp"
+             name="otp"
+             ngModel
+             required
+             pattern="^\d{4}$"
+             placeholder="Enter your OTP">
+    </div>
+
+    <button class="ui button" type="submit" [disabled]="!formOTP.valid" style="cursor: pointer">Let's Begin</button>
+  </form>
+  <h4>Time Left</h4>
+</div>
+
+
+
